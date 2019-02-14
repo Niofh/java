@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * 全局异常 简单版，复制需要返回rest数据
  * https://blog.csdn.net/qq_34083066/article/details/79424142
+ * https://blog.csdn.net/u014044812/article/details/78219692
  */
 @ControllerAdvice
 @Slf4j

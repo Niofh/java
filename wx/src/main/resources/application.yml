@@ -1,3 +1,20 @@
+
+
+mybatis:
+  #springboot启动要加上扫描dao目录 @MapperScan(basePackages = {"com.fuhua.wx.dao"})
+  mapper-locations: classpath:mapper/*.xml #扫描mapper目录
+  type-aliases-package: com.fuhua.wx.pojo  # 扫描pojo目录
+
+
+#pagehelper分页插件
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+# 开发环境为dev
 spring:
   profiles:
-    active: dev # 开发环境为dev
+    active: dev
+

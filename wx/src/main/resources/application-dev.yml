@@ -1,6 +1,7 @@
 server:
   port: 80
 
+
 spring:
   devtools:
     restart:
@@ -10,14 +11,17 @@ spring:
       exclude: static/**,templates/**
       additional-paths: src/main/java
   datasource:
+      # 使用druid数据源
+      type: com.alibaba.druid.pool.DruidDataSource
       driver-class-name: com.mysql.jdbc.Driver
-      url: jdbc:mysql://127.0.0.1:3306/springboot
+      url: jdbc:mysql://127.0.0.1:3306/springboot?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true
       username: root
       password: root
   thymeleaf:
     cache: false
   jackson:
       default-property-inclusion: non_null
+
 
   redis:
     database: 0
