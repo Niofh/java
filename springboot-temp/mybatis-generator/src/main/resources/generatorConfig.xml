@@ -49,16 +49,18 @@
 
 
         <!-- targetProject:mapper映射文件生成的位置 -->
-        <sqlMapGenerator targetPackage="${dao.url}" targetProject="${target.project}">
+        <sqlMapGenerator targetPackage="${mapper.url}" targetProject="${target.resources}">
             <!-- enableSubPackages:是否让schema作为包的后缀 -->
             <property name="enableSubPackages" value="false"/>
         </sqlMapGenerator>
 
-        <!-- targetPackage：mapper接口生成的位置 -->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="${mapper.url}" targetProject="${target.project}">
+        <!-- targetPackage：DAO接口生成的位置 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="${dao.url}" targetProject="${target.project}">
             <!-- enableSubPackages:是否让schema作为包的后缀 -->
             <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>
+
+
 
 
         <!-- 指定数据库表 -->

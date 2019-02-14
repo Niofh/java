@@ -1,4 +1,4 @@
-package java.com.mmall.pojo;
+package com.mmall.pojo;
 
 import java.io.Serializable;
 import lombok.AllArgsConstructor;
@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
  *  TABLE null
  */
 /**
-* Created by Mybatis Generator on 2019/01/28
+* Created by Mybatis Generator on 2019/02/14
 */
 @Data
 @NoArgsConstructor
