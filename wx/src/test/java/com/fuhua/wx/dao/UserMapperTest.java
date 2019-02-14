@@ -30,6 +30,8 @@ public class UserMapperTest {
             user.setPhone("1232");
 
             userMapper.insert(user);
+
+
         }catch (Exception e){
             log.info("==================================");
             log.info(e.getMessage());
