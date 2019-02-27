@@ -6,7 +6,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.ObjectPostProcessor;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -23,11 +22,21 @@ public class BrowserSecurity extends WebSecurityConfigurerAdapter {
     }
 
     @Autowired
+    private MyUserDetailsService myUserDetailsService;
+
+
+    @Autowired
     private MyAuthenticationSuccessHandler myAuthenticationSuccessHandler;
 
 
     @Autowired
     private MyAuthenctiationFailureHandler myAuthenctiationFailureHandler;
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        // 可以使用postman请求接口登录  保存密码推荐用Bcrypt.
+        auth.userDetailsService(myUserDetailsService).passwordEncoder(new BCryptPasswordEncoder());
+    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -52,7 +61,7 @@ public class BrowserSecurity extends WebSecurityConfigurerAdapter {
 
                 .formLogin()          // form表单登录,不能用于后端当做接口来调用
                 .loginPage("/login")  // 设置登录页面
-                .loginProcessingUrl("/user/login")  // 自定义的登录接口
+                .loginProcessingUrl("/user/login")  // 自定义的登录接口 ajax请求这个接口登录
                 .successHandler(myAuthenticationSuccessHandler) // 成功处理函数
                 .failureHandler(myAuthenctiationFailureHandler);
 
