@@ -11,6 +11,10 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
+
+/**
+ * sql获取用户信息权限返回配置
+ */
 @Component
 @Slf4j
 public class MyUserDetailsService implements UserDetailsService {
